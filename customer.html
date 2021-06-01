@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+<!--
+TD{font-family:courier;font-size:12pt;
+}
+.center
+{
+  text-align:center;
+}
+.center1
+{
+  margin-left:auto;
+  margin-right:auto;
+}
+.header{
+  padding: 10px;
+  text-align:center;
+  background:#8a00e6;
+  color:white;
+  font-size:25px;
+  word-spacing:10px;
+}
+</style>  
+</head> 
+<body>
+<script>
+function myfunc()
+{
+var name=reg.surname.value;
+l=name.length;
+if(l>25)
+{
+  alert("Name should not exists 25 characters")
+  return false;
+}
+n = name.indexOf(".");
+if(n==1 )
+{
+ alert("In Name,the initial should be at last")
+ return false;
+}
+var ffname=reg.fname.value;
+ni = ffname.indexOf(".");
+if(ni==1)
+{
+ alert("In Father Name,the initial should be at last");
+ return false;
+}
+var email =reg.mail.value;
+  n = email.indexOf("@");
+  s= email.lastIndexOf(".");
+ if ( n < 1)
+ {
+     alert("Please enter mailid with its extension");
+ }
+if ( s < 2)
+{
+   alert("Please enter the gmail with .com");
+}
+var mob=reg.mobile.value;
+mi=mob.length; 
+if(mi>10 || mi<10)
+{
+  alert("please provide correct mobile number")
+  return false;
+}
+var acntnum=reg.account.value;
+ac=acntnum.length;
+if(ac>16 || ac<16)
+{
+alert("Please Provide correct account number")
+return false;
+}
+var re=/^[0-9]+$/
+var isValid=re.test(document.getElementById("account").value);
+if(!isValid)
+{
+alert("Account number should be numbers")
+return false;
+}
+var ifsc=reg.ifsccode.value;
+ifs=ifsc.length;
+if(ifs>11)
+{
+alert("IFSC contains more than 11 characters")
+return false;
+}
+else if(ifs<11)
+{
+alert("IFSC contains less than 11 characters")
+return false;
+}
+var pincode=reg.pin.value;
+pi=pincode.length;
+if(pi>6 && pi<6)
+{
+alert("Please enter the correct pincode")
+return false; 
+}
+}
+</script>  
+<div class="center">
+<div class="header">
+  <h3>SMARTCLICK ELETRONICS</h3>
+</div>
+</div>
+<br>
+<form  name="reg" onsubmit="return myfunc()" action="ExServelet" method="POST"> 
+<table class="center1" style="background-color:#f2f2f2;background-repeat:no-repeat;background-size:100%;">
+<tr><td>
+<table>
+<tr>
+<td><b>Full name</b></td><td>:<input type="text" name="surname"style="width:250px; height:28px" placeholder="Enter your name" ></td>
+</tr><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Father name</b></td><td>:<input type="text" name="fname"style="width:250px; height:28px" placeholder="Enter your Fathername" ></td>
+</tr><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Gender</b></td><td>:<select name="gender" style="width:250px; height:28px">
+<option valye="gender" placeholder="GENDER"></option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="others">Others</option>
+</select></td></tr><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<tr>
+
+<tr>
+<td><b>EmailAddress</b></td><td>:<input type="text" name="mail" placeholder="eg:urname@example.com" style="width:250px; height:28px"></td>
+</tr><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Mobile Number</b></td><td>:<input type="text" name="mobile" style="width:250px; height:28px"></input></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Account Number</b></td><td>:<input type="text" name="account" style="width:250px; height:28px"></input></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Bank name</b></td><td>:<input type="text" name="bankname"style="width:250px; height:28px" placeholder="Enter your bank name" ></td>
+</tr><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>IFSC code</b></td><td>:<input type="text" name="ifsccode"style="width:250px; height:28px" placeholder="Enter the ifsc code" ></td>
+</tr><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Items purchased with quantity     :</b></td><td><textarea rows="8" name="item" style="width:250px; height:150px"></textarea></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<tr>
+<td><b>Amount for the purchase</b></td><td>:<input type="text" name="purchase" style="width:250px; height:28px" placeholder="Enter the total amount"></input></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Date Of Purchase</b></td><td>:<input type="text" name="dat" style="width:250px; height:28px" placeholder="DD-MM-YY"></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Interest Percentage</b></td><td>:<input type="text" name="percent" style="width:250px; height:28px" placeholder="Enter the interest percentage"></input></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<tr>
+<td><b>Contact Address(for verification)                :</b></td><td><textarea rows="7" name="add" style="width:250px; height:150px"></textarea></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+<TR>
+<td><b>pincode</b></td><td>:<input type="text" name="pin" style="width:250px; height:28px"></input></td>
+</tr> <tr/><tr/><tr/><tr/><tr/><tr/><tr/> 
+<tr>
+<td></td><td><b><button  style="background-color:#1a1aff;color:white;text-align:centre;border-color:#1a1aff;height:28px;width=320px"></button></b></td>
+</tr><tr/><tr/><tr/><tr/><tr/><tr/><tr/><tr/>
+</table>
+</td></tr>
+</table>
+</form>
+<br>
+<br>
+</body>
+</html>
